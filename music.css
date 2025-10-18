@@ -1,0 +1,828 @@
+/* 美化頁尾 */
+.site-footer {
+    background: linear-gradient(90deg, #181818 0%, #232526 100%);
+    color: #fff;
+    padding: 32px 0 16px 0;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    margin-top: 40px;
+    font-family: 'LXGW Marker Gothic', sans-serif;
+}
+.footer-content {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.footer-logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+}
+.footer-links {
+    margin-bottom: 4px;
+    font-size: 1.1em;
+}
+.footer-links a {
+    color: #1db954;
+    text-decoration: none;
+    margin: 0 6px;
+    transition: color 0.2s;
+}
+.footer-links a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+.footer-copy {
+    font-size: 0.95em;
+    color: #b3b3b3;
+}
+/* Reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'LXGW Marker Gothic', sans-serif;
+    background: linear-gradient(135deg, #121212 0%, #1a1a1a 100%);
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* 使用 Flexbox 垂直排列 */
+    position: relative;
+    overflow-x: hidden;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    flex-grow: 1;
+}
+
+/* 側邊欄 */
+.sidebar {
+    width: 280px;
+    background: linear-gradient(180deg, #000000 0%, #1a1a1a 100%);
+    padding: 20px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+    position: fixed;
+    height: 100vh;
+    z-index: 1000;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    left: -280px; /* 預設隱藏 */
+}
+
+.sidebar.active {
+    left: 0; /* 顯示側邊欄 */
+}
+
+/* 漢堡選單按鈕 */
+.menu-toggle {
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    z-index: 1001;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+    color: white;
+}
+
+.menu-toggle:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* 主要內容區域調整 */
+.main-content {
+    margin-left: 0;
+    width: 100%;
+    transition: margin-left 0.3s ease-in-out;
+    padding: 20px;
+    padding-top: 60px; /* 為漢堡選單留出空間 */
+}
+
+.search-bar {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.search-bar input {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    background-color: #222;
+    color: #fff;
+    border-radius: 3px;
+}
+
+.search-bar button {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    padding: 10px 0;
+    cursor: pointer;
+    color: #b3b3b3;
+    transition: color 0.2s ease;
+    /* 增加過渡效果 */
+}
+
+.sidebar li:hover,
+.sidebar li.active {
+    color: #fff;
+}
+
+/* 主要內容區域 */
+.main-content {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+.main-content h1,
+.main-content h2 {
+    margin-bottom: 20px;
+}
+
+/* 音樂播放器 */
+.music-player {
+    background: rgba(24, 24, 24, 0.98);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    transform: translateY(0);
+    transition: all 0.4s ease-in-out;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* 這個新的 class 將由 JavaScript 控制，用以顯示播放器 */
+.music-player.visible {
+    transform: translateY(0);
+}
+
+/* 音樂播放器中的歌曲資訊 */
+.music-player .song-info {
+    display: flex;
+    align-items: center;
+    width: 20%;
+    /* 限制 .song-info 的寬度 */
+    overflow: hidden;
+}
+
+.music-player .song-info img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+/* 音樂播放器中的歌曲資訊文字容器 */
+.music-player .song-info .song-details {
+    width: 100%;
+    /* 讓文字容器佔滿剩餘空間 */
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+/* 音樂播放器中的歌曲標題 */
+.music-player .song-info h3 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #fff;
+    /* 移除overflow, white-space 和 text-overflow */
+    position: relative;
+    /* 保留相對定位 */
+    animation: none; /* 先關閉動畫，讓 JS 控制 */
+}
+
+.music-player .song-info h3.animate-title {
+    animation: scrollText 15s linear infinite;
+}
+
+/* 音樂播放器中的歌曲作者 */
+.music-player .song-info p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #b3b3b3;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    /* 超過寬度時顯示省略符號 */
+}
+
+/* 推薦歌曲區塊 */
+.player-controls {
+    width: 20%;
+    /* 控制按鈕區域的寬度 */
+    display: flex;
+    justify-content: center;
+    /* 讓按鈕水平居中 */
+    align-items: center;
+}
+
+.player-controls button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+/* 右側資訊欄 */
+.right-sidebar {
+    position: fixed;
+    right: -320px;
+    top: 0;
+    height: 100vh;
+    width: 320px;
+    background: linear-gradient(180deg, rgba(20,20,20,0.95), rgba(12,12,12,0.95));
+    box-shadow: -4px 0 20px rgba(0,0,0,0.6);
+    z-index: 1002;
+    transition: right 0.35s ease-in-out;
+    padding: 20px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.right-sidebar.open {
+    right: 0;
+}
+
+.right-sidebar .close-right {
+    align-self: flex-end;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.right-sidebar .right-content {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.right-sidebar img {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin: 0 auto 15px auto;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+}
+
+.show-info {
+    position: fixed;
+    right: 20px;
+    bottom: 90px;
+    z-index: 1003;
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* 下載按鈕樣式（清單內） */
+.download-button {
+    background: rgba(29,185,84,0.12);
+    border: 1px solid rgba(29,185,84,0.2);
+    color: #1db954;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.version-item .download-button,
+#music-list li .download-button {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+}
+
+#music-list li:hover .download-button,
+.version-item:hover .download-button {
+    opacity: 1;
+    visibility: visible;
+}
+
+.song-progress {
+    flex: 1;
+    /* 讓進度條佔據剩餘空間 */
+    margin: 0 20px;
+    display: flex;
+    align-items: center;
+}
+
+.song-progress input[type="range"] {
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 4px;
+    background: #555;
+    outline: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: linear-gradient(to right, 
+        rgba(29, 185, 84, 0.8) 0%, 
+        rgba(29, 185, 84, 0.8) var(--progress-percent), 
+        rgba(255, 255, 255, 0.1) var(--progress-percent), 
+        rgba(255, 255, 255, 0.1) 100%
+    );
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.song-progress input[type="range"]:hover {
+    height: 6px;
+}
+
+.song-progress input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    /* width: 15px; */
+    /* 移除寬度 */
+    /* height: 15px; */
+    /* 移除高度 */
+    width: 0;
+    height: 0;
+    background: transparent;
+    /* 透明背景 */
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.song-progress .time {
+    font-size: 12px;
+    color: #b3b3b3;
+    margin: 0 5px;
+}
+
+/* 跑馬燈動畫 */
+@keyframes scrollText {
+    0% {
+        transform: translateX(10%);
+    }
+
+    50% {
+        transform: translateX(-50%); /* 向左滾動 */
+    }
+
+    100% {
+        transform: translateX(10%);
+    }
+}
+
+/* 播放列表 */
+.playlist-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.playlist-item {
+    background-color: #1e1e1e;
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.playlist-item:hover {
+    background-color: #34495e;
+}
+
+.playlist-item img {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+#playlist-list {
+    list-style: none;
+    padding: 0;
+}
+
+#playlist-list li {
+    padding: 10px;
+    background-color: #1e1e1e;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#playlist-list li:hover {
+    background-color: #3498db;
+}
+
+/* Genre list and music list */
+/* 為分類標籤的容器啟用 flexbox，以獲得更好的對齊效果 */
+.genre-list ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* 在標籤之間增加間距 */
+    padding-left: 20px; /* 與下方的歌曲列表對齊 */
+}
+
+/* 將分類項目更新為更現代的藥丸狀(pill)標籤 */
+.genre-list li {
+    padding: 8px 16px; /* 增加內距，讓視覺更舒適 */
+    background-color: #282828; /* 使用稍亮的灰色 */
+    border-radius: 20px; /* 圓角使其呈現藥丸狀 */
+    margin: 0; /* 因已使用 gap，重設 margin */
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease-in-out;
+    font-size: 14px; /* 標準化字體大小 */
+}
+
+/* 保留滑鼠懸停效果，但微調顏色 */
+.genre-list li:hover {
+    background-color: #3e3e3e;
+    transform: scale(1.05);
+}
+
+/* 為使用中的狀態選擇更活潑的顏色，例如 Spotify 的綠色 */
+.genre-list li.active {
+    background-color: #1db954;
+    color: white;
+    transform: scale(1.05);
+}
+
+#music-list {
+    margin-top: 20px;
+    list-style: none; /* 移除預設的列表樣式 */
+    padding: 0; /* 移除預設的內距 */
+}
+
+/* 移除 li 上的預設樣式，改用新的結構 */
+#music-list li {
+    padding: 0;
+    background-color: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    margin-bottom: 8px;
+    cursor: default;
+    transition: all 0.3s ease;
+    display: block;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+}
+
+#music-list li:hover {
+    background-color: #2a2a2a; /* 整行高亮度的懸停效果 */
+}
+
+/* 歌曲項目結構的新樣式 */
+.song-item > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+#music-list li .song-details {
+    flex: 1;
+    padding: 15px 20px;
+    display: flex; /* 為版本圖示的對齊而新增 */
+    justify-content: space-between; /* 為版本圖示的對齊而新增 */
+    align-items: center; /* 為版本圖示的對齊而新增 */
+}
+
+#music-list li .song-actions {
+    display: flex;
+    padding: 0 20px;
+    gap: 10px; /* 按鈕之間的間距 */
+}
+
+/* 音樂列表中的下載按鈕 */
+#music-list li .song-actions .download-button {
+    background: rgba(29, 185, 84, 0.2);
+    border: none;
+    color: #1db954;
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+}
+
+#music-list li:hover .song-actions .download-button {
+    opacity: 1;
+    visibility: visible;
+}
+
+#music-list li .song-actions .download-button:hover {
+    background: rgba(29, 185, 84, 0.3);
+    transform: scale(1.1);
+}
+
+/* 為播放按鈕設計更具吸引力與互動性的新樣式 */
+#music-list li .song-actions button.play-song {
+    background: #1db954;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 10px;
+    opacity: 0; /* 預設為隱藏 */
+    visibility: hidden;
+    transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
+}
+
+/* 在滑鼠懸停於整行時顯示播放按鈕 */
+#music-list li:hover .song-actions button.play-song {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* 在按鈕懸停時加入一個小的放大效果 */
+#music-list li .song-actions button.play-song:hover {
+    transform: scale(1.1);
+}
+
+/* 版本列表的樣式 */
+.versions-list {
+    list-style: none;
+    padding-left: 20px;
+    background-color: #181818;
+    display: none; /* 預設隱藏，由 JS 切換 */
+}
+
+.version-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px 10px 40px; /* 將版本項目縮排 */
+    transition: background-color 0.2s;
+    border-top: 1px solid #282828;
+}
+
+.version-item:hover {
+    background-color: #2a2a2a;
+}
+
+/* 將相同的播放按鈕邏輯應用於版本列表 */
+.version-item .song-actions button.play-song {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.version-item:hover .song-actions button.play-song {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* Featured Songs Section */
+.featured-songs {
+    margin-bottom: 20px;
+}
+
+.featured-songs h2 {
+    margin-bottom: 15px;
+}
+
+.featured-songs-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* 調整磚塊大小 */
+    gap: 20px;
+}
+
+.featured-song {
+    background-color: #1e1e1e;
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    /* 垂直對齊 */
+}
+
+.featured-song:hover {
+    background-color: #2F4F4F;
+}
+
+.featured-song img {
+    width: 80px;
+    /* 調整圖片大小 */
+    height: 80px;
+    border-radius: 5px;
+    margin-right: 15px;
+}
+
+.featured-song .song-info {
+    flex: 1;
+}
+
+.featured-song .song-info h3 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.featured-song .song-info p {
+    margin: 0;
+    color: #b3b3b3;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        padding: 10px;
+        transform: translateX(0);
+        /* 在小螢幕上始終顯示側邊欄 */
+    }
+
+    .main-content {
+        padding: 10px;
+    }
+
+    .music-player {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .song-info {
+        margin-bottom: 10px;
+    }
+
+    .song-progress {
+        width: 100%;
+        margin: 10px 0;
+    }
+}
+
+/* 搜尋結果彈出視窗 */
+#search-results-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    /* 半透明背景 */
+    z-index: 1000;
+    /* 確保在最上層 */
+    overflow: auto;
+    /* 內容超出時顯示捻軸 */
+}
+
+.search-results-content {
+    position: relative;
+    background-color: #1e1e1e;
+    margin: 10% auto;
+    /* 垂直和水平居中 */
+    padding: 20px;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 800px;
+    /* 限制最大寬度 */
+}
+
+.search-results-content h2 {
+    margin-bottom: 15px;
+}
+
+.search-results-content .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #fff;
+}
+
+/* 圖片放大檢視視窗 */
+#image-viewer-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    /* 半透明背景 */
+    z-index: 1001;
+    /* 確保在搜尋結果上方 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#image-viewer-popup img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    /* 確保圖片完整顯示 */
+}
+
+#image-viewer-popup .close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* 移除這個，讓javascript判斷 */
+.animate-title {
+  animation: scrollText 10s linear infinite !important;
+}
+
+/* 定義按鈕的基礎樣式 */
+.player-controls button,
+.show-info,
+.download-button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    padding: 8px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 按鈕的滑鼠懸停效果 */
+.player-controls button:hover,
+#download-button:hover {
+    color: #007bff; /* 滑鼠懸停時變色 */
+}
+
+/* 隨機播放按鈕的樣式 */
+.player-controls button#shuffle.active {
+    color: #007bff; /* 藍色 */
+}
+
+/* 循環播放按鈕的樣式 (active 狀態) */
+.player-controls button#repeat.active {
+    color: #007bff; /* 藍色 */
+}

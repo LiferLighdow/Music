@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lifer_Lighdow's Music</title>
+    <link rel="stylesheet" href="music.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="common-nav.css">
+    <link rel="icon" href="images/logo.ico" type="image/x-icon" / >
+    <link rel="shortcut icon" href="images/logo.ico" type="image/x-icon" / >
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=LXGW+Marker+Gothic&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 漢堡選單按鈕（控制左側欄） -->
+    <button class="menu-toggle" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+    </button>
+
+     <header>
+        <!-- 導覽列程式碼從 Contact 複製過來 -->
+        <nav>
+            <div class="logo">Lifer_Lighdow</div>
+            <ul>
+                <li><a href="../" data-i18n="home">Home</a></li>
+                <li><a href="" data-i18n="music">Music</a></li>
+                <li><a href="../game" data-i18n="games">Games</a></li>
+                <li><a href="../Contact" data-i18n="contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+
+        <!-- 側邊欄 -->
+        <div class="sidebar">
+            <h2>Lifer_Lighdow's Music</h2>
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Search...">
+                <button id="search-button"><i class="fas fa-search"></i></button>
+            </div>
+            <ul>
+                <li data-page="home" class="active">Home</li>
+                <li data-page="playlists">Playlists</li>
+                <li data-page="library">Your Library</li>
+            </ul>
+        </div>
+
+        <!-- 主要內容區域 -->
+        <div class="main-content">
+            <div id="home" class="page active">
+                <h1>Welcome!</h1>
+                <section class="featured-songs">
+        <h2>Featured Songs</h2>
+        <div class="featured-songs-container">
+            <!-- 推薦歌曲會在這裡動態生成 -->
+        </div>
+		  </section>
+		  <h2>Playlists</h2>
+    <section class="playlist-container">
+      <!-- 播放列表項目會在這裡動態生成 -->
+    </section>
+    </div>
+
+	 <!-- 搜尋結果區域 (彈出視窗) -->
+<div id="search-results-popup">
+    <div class="search-results-content">
+        <span class="close-button">×</span>
+        <h2>Search Results</h2>
+        <div id="search-results">
+            <!-- 搜尋結果會在這裡動態生成 -->
+        </div>
+    </div>
+</div>
+
+            <div id="playlists" class="page">
+                <h2>My Playlists</h2>
+                <ul id="playlist-list">
+                    <!-- 播放列表會在這裡動態生成 -->
+                </ul>
+            </div>
+
+            <div id="library" class="page">
+                <h2>Your Library</h2>
+                <div class="genre-list">
+                    <h3>Genres</h3>
+                    <ul>
+                        <li data-genre="pop">Pop</li>
+                        <li data-genre="rock">Rock</li>
+                        <li data-genre="electronic">Electronic</li>
+                        <li data-genre="vocaloid">Vocaloid</li>
+                        <li data-genre="game">Game</li>
+								<li data-genre="piano">Piano</li>
+                        <li data-genre="original">Original</li>
+								<li data-genre="nightcore">Nightcore</li>
+                    </ul>
+                </div>
+                <div id="music-list" data-genre = "${genre}">
+                <!-- 音樂列表將在此處動態生成 -->
+                </div>
+                <div id="search-results">
+                   <!-- 搜尋結果將在此處顯示 -->
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 音樂播放器 -->
+    <div class="music-player">
+        <div class="song-info">
+            <img src="music/cover/default.png" alt="Song Cover" id="song-cover">
+            <div class="song-details">
+            <h3 id="song-title">Song Title</h3>
+            <p id="song-artist">Lifer_Lighdow</p>
+        </div>
+        </div>
+
+        <div class="player-controls">
+            <button id="shuffle"><i class="fas fa-random"></i></button>
+    <button id="prev"><i class="fas fa-step-backward"></i></button>
+    <button id="play"><i class="fas fa-play"></i></button>
+    <button id="next"><i class="fas fa-step-forward"></i></button>
+    <button id="repeat"><i class="fas fa-redo"></i></button>
+        </div>
+
+        <div class="song-progress">
+            <span id="current-time" class="time">0:00</span>
+            <input type="range" min="0" max="100" value="0" id="progress">
+            <span id="duration" class="time">3:30</span>
+        </div>
+
+        <audio id="audio" src="music/pop/pop1.mp3"></audio>
+    </div>
+
+	 <!-- 圖片放大檢視視窗 -->
+<div id="image-viewer-popup">
+    <span class="close-button">×</span>
+    <img id="image-viewer-image" src="" alt="Sorry, we haven't put the song cover.😅">
+</div>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-logo">🎵 Melodic Haven</div>
+            <div class="footer-links">
+                <a href="../" target="_blank">Home</a> |
+                <a href="" target="_blank">Music</a> |
+                <a href="../game" target="_blank">Games</a> |
+                <a href="../Contact" target="_blank">Contact</a>
+            </div>
+            <div class="footer-copy">© 2025 Lifer_Lighdow. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <!-- 右側資訊欄（手動顯示 / 隱藏） -->
+    <aside class="right-sidebar" aria-hidden="true">
+        <button class="close-right" aria-label="Close info">×</button>
+        <div class="right-content">
+            <img id="info-cover" src="music/cover/default.png" alt="Cover">
+            <h3 id="info-title">Song Title</h3>
+            <p id="info-artist">Lifer_Lighdow</p>
+            <div class="meta-list">
+                <p><strong>Singer</strong>: <span id="meta-singer">-</span></p>
+                <p><strong>Style</strong>: <span id="meta-genre">-</span></p>
+                <p><strong>BPM</strong>: <span id="meta-bpm">-</span></p>
+                <p><strong>Year</strong>: <span id="meta-year">-</span></p>
+                <div class="lyrics">
+                    <h4>Lyrics</h4>
+                    <pre id="meta-lyrics">-</pre>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- 右側顯示按鈕（也可放在 header 或 player） -->
+    <button id="show-info" class="show-info" aria-label="Show song info">
+        <i class="fas fa-info-circle"></i>
+    </button>
+
+    <script src="../X.js"></script>
+    <script src="music-data.js"></script> 
+    <script src="X.js"></script>
+    <script src="music.js"></script>
+
+</body>
+</html>
