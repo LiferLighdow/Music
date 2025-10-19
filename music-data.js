@@ -273,10 +273,10 @@ const musicData = [
         "info": "Source/Eternal Moment/information.json"
     },
     {
-        "title": "01011001__ɅƧȼℏřØπ",
-        "src": "Source/01011001__ɅƧȼℏřØπ/audio.mp3",
-        "cover": "Source/01011001__ɅƧȼℏřØπ/cover.jpg",
-        "info": "Source/01011001__ɅƧȼℏřØπ/information.json"
+        "title": "01011001//ɅƧȼℏřØπ",
+        "src": "Source/01011001//ɅƧȼℏřØπ/audio.mp3",
+        "cover": "Source/01011001//ɅƧȼℏřØπ/cover.jpg",
+        "info": "Source/01011001//ɅƧȼℏřØπ/information.json"
     },
     {
         "title": "和平の交響曲",
@@ -552,7 +552,7 @@ const albumData = {
         "❤꒐ ꒒ꄲ꒦ꏂ ꌦꄲ꒤❤",
         "罪悪感",
         "Eternal Moment",
-        "01011001__ɅƧȼℏřØπ",
+        "01011001//ɅƧȼℏřØπ",
         "和平の交響曲",
         "儚い幻",
         { "title": "生きているこの時、死んだあの日を想う", "versions": ["default", "feat. 初音ミク", "feat. 鏡音リン", "feat. 鏡音レン", "feat. 巡音ルカ", "feat. IA", "feat. VOCALOIDS"] }
