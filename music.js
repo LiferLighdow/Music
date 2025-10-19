@@ -468,7 +468,7 @@ function loadPlaylistItems() {
         const playlistItem = document.createElement('div');
         playlistItem.classList.add('playlist-item');
         // 圖片網址自動設定
-        const albumImgUrl = `Album/${playlist.name}.jpg`;
+        const albumImgUrl = `Album/${playlist.name}.webp`;
         playlistItem.innerHTML = `
             <img src="${albumImgUrl}" alt="${playlist.name}">
             <h3>${playlist.name}</h3>
