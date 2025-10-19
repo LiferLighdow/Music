@@ -438,24 +438,25 @@ function formatTime(time) {
 
 // 載入播放列表項目
 function loadPlaylistItems() {
-    playlistContainer.innerHTML = ''; // 清空之前的內容
+    playlistContainer.innerHTML = '';
     playlists.forEach(playlist => {
         const playlistItem = document.createElement('div');
         playlistItem.classList.add('playlist-item');
+        // 圖片網址自動設定
+        const albumImgUrl = `Album/${playlist.name}.jpg`;
         playlistItem.innerHTML = `
-            <img src="${playlist.cover}" alt="${playlist.name}">
+            <img src="${albumImgUrl}" alt="${playlist.name}">
             <h3>${playlist.name}</h3>
             <p>${playlist.description}</p>
         `;
         playlistContainer.appendChild(playlistItem);
 
         playlistItem.addEventListener('click', () => {
-            // 播放列表點擊事件
             const genre = playlist.name.toLowerCase();
             currentGenre = genre;
             loadMusicList(genre);
             updateGenreSelection(genre);
-            switchPage('library'); // 切換到 Your Library 頁面
+            switchPage('library');
         });
     });
 }
