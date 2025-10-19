@@ -672,6 +672,350 @@ body {
 }
 
 
+/* 播放清單頁面樣式 */
+.playlist-actions {
+    margin-bottom: 20px;
+    padding: 0 20px;
+}
+
+.action-button {
+    background: #1db954;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 24px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.action-button:hover {
+    background: #1ed760;
+    transform: translateY(-2px);
+}
+
+.action-button:active {
+    transform: translateY(0);
+}
+
+.action-button i {
+    font-size: 1.1rem;
+}
+
+/* 對話框樣式 */
+.dialog {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 2000;
+    backdrop-filter: blur(5px);
+}
+
+.dialog.show {
+    display: flex;
+    animation: dialogFadeIn 0.3s ease-out;
+}
+
+.dialog-content {
+    background: #282828;
+    padding: 24px;
+    border-radius: 12px;
+    min-width: 300px;
+    max-width: 90%;
+    margin: auto;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dialog-content h3 {
+    margin: 0 0 20px 0;
+    color: #fff;
+}
+
+.dialog-content input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+    color: #fff;
+    font-size: 1rem;
+}
+
+/* 播放清單編輯對話框的歌曲列表 */
+.playlist-songs {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    padding: 8px;
+}
+
+.playlist-song-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    margin-bottom: 8px;
+    border-radius: 4px;
+    justify-content: space-between;
+}
+
+.playlist-song-item:last-child {
+    margin-bottom: 0;
+}
+
+.playlist-song-info {
+    flex: 1;
+    margin-right: 12px;
+}
+
+.playlist-song-title {
+    color: #fff;
+    font-size: 1rem;
+    margin-bottom: 4px;
+}
+
+.playlist-song-artist {
+    color: #b3b3b3;
+    font-size: 0.9rem;
+}
+
+.playlist-song-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.playlist-song-actions button {
+    background: transparent;
+    border: none;
+    color: #b3b3b3;
+    padding: 6px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.playlist-song-actions button:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.playlist-song-actions .move-up:hover {
+    color: #1db954;
+}
+
+.playlist-song-actions .move-down:hover {
+    color: #1db954;
+}
+
+.playlist-song-actions .remove-song:hover {
+    color: #ff4444;
+}
+
+.dialog-content input:focus {
+    outline: none;
+    border-color: #1db954;
+}
+
+.dialog-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.dialog-buttons button {
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.primary-button {
+    background: #1db954;
+    color: white;
+    border: none;
+}
+
+.primary-button:hover {
+    background: #1ed760;
+    transform: translateY(-2px);
+}
+
+.secondary-button {
+    background: transparent;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.secondary-button:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+/* 播放清單列表樣式 */
+.playlists-container {
+    padding: 0 20px;
+}
+
+#playlist-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#playlist-list li {
+    background: rgba(255, 255, 255, 0.05);
+    margin-bottom: 12px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#playlist-list li .playlist-item {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    cursor: pointer;
+}
+
+#playlist-list li:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(4px);
+}
+
+.playlist-item .playlist-info {
+    flex: 1;
+}
+
+.playlist-item .playlist-title {
+    font-size: 1.1rem;
+    margin: 0 0 4px 0;
+    color: #fff;
+}
+
+.playlist-item .playlist-count {
+    font-size: 0.9rem;
+    color: #b3b3b3;
+}
+
+.playlist-item .playlist-actions {
+    display: flex;
+    gap: 8px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+#playlist-list li:hover .playlist-actions {
+    opacity: 1;
+}
+
+.playlist-action-button {
+    background: transparent;
+    border: none;
+    color: #b3b3b3;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.playlist-action-button:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+@keyframes dialogFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 加入播放清單按鈕 */
+.add-to-playlist-button {
+    background: transparent;
+    border: none;
+    color: #b3b3b3;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.add-to-playlist-button:hover {
+    color: #1db954;
+    background: rgba(29, 185, 84, 0.1);
+}
+
+/* 播放清單選擇器 */
+.playlist-selector {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 2001;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease-out;
+}
+
+.playlist-selector-content {
+    background: #282828;
+    padding: 24px;
+    border-radius: 12px;
+    min-width: 300px;
+    max-width: 90%;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.playlist-selector h4 {
+    margin: 0 0 16px 0;
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+.playlist-options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.playlist-options button {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s ease;
+}
+
+.playlist-options button:hover {
+    background: rgba(29, 185, 84, 0.1);
+    border-color: #1db954;
+}
+
 /* Featured Songs Section */
 .featured-songs {
     margin-bottom: 20px;

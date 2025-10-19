@@ -6,8 +6,8 @@
     <title>Lifer_Lighdow's Music</title>
     <link rel="stylesheet" href="music.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="../common-nav.css">
-    <link rel="icon" href="../images/logo.ico" type="image/x-icon" / >
+    <link rel="stylesheet" href="common-nav.css">
+    <link rel="icon" href="images/logo.ico" type="image/x-icon" / >
     <link rel="shortcut icon" href="images/logo.ico" type="image/x-icon" / >
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -58,7 +58,7 @@
             <!-- 推薦歌曲會在這裡動態生成 -->
         </div>
 		  </section>
-		  <h2>Playlists</h2>
+		  <h2>Albums</h2>
     <section class="playlist-container">
       <!-- 播放列表項目會在這裡動態生成 -->
     </section>
@@ -77,9 +77,43 @@
 
             <div id="playlists" class="page">
                 <h2>My Playlists</h2>
-                <ul id="playlist-list">
-                    <!-- 播放列表會在這裡動態生成 -->
-                </ul>
+                <div class="playlist-actions">
+                    <button id="create-playlist" class="action-button">
+                        <i class="fas fa-plus"></i> 新增播放清單
+                    </button>
+                </div>
+                <div class="playlists-container">
+                    <ul id="playlist-list">
+                        <!-- 播放清單會在這裡動態生成 -->
+                    </ul>
+                </div>
+                
+                <!-- 新增播放清單對話框 -->
+                <div id="playlist-dialog" class="dialog">
+                    <div class="dialog-content">
+                        <h3>新增播放清單</h3>
+                        <input type="text" id="playlist-name" placeholder="請輸入播放清單名稱">
+                        <div class="dialog-buttons">
+                            <button id="cancel-playlist" class="secondary-button">取消</button>
+                            <button id="save-playlist" class="primary-button">儲存</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 編輯播放清單對話框 -->
+                <div id="edit-playlist-dialog" class="dialog">
+                    <div class="dialog-content">
+                        <h3>編輯播放清單</h3>
+                        <input type="text" id="edit-playlist-name" placeholder="播放清單名稱">
+                        <div class="playlist-songs">
+                            <!-- 歌曲列表會動態生成在這裡 -->
+                        </div>
+                        <div class="dialog-buttons">
+                            <button id="cancel-edit-playlist" class="secondary-button">取消</button>
+                            <button id="save-edit-playlist" class="primary-button">儲存</button>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div id="library" class="page">
@@ -183,6 +217,8 @@
     <script src="music-data.js"></script> 
     <script src="X.js"></script>
     <script src="music.js"></script>
+    <script src="playlist.js"></script>
+    <script src="playlist-handlers.js"></script>
 
 </body>
 </html>
