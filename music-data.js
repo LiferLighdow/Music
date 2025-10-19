@@ -274,9 +274,9 @@ const musicData = [
     },
     {
         "title": "01011001//ɅƧȼℏřØπ",
-        "src": "Source/01011001//ɅƧȼℏřØπ/audio.mp3",
-        "cover": "Source/01011001//ɅƧȼℏřØπ/cover.jpg",
-        "info": "Source/01011001//ɅƧȼℏřØπ/information.json"
+        "src": "Source/01011001__ɅƧȼℏřØπ/audio.mp3",
+        "cover": "Source/01011001__ɅƧȼℏřØπ/cover.jpg",
+        "info": "Source/01011001__ɅƧȼℏřØπ/information.json"
     },
     {
         "title": "和平の交響曲",
