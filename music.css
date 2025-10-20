@@ -609,6 +609,32 @@ body {
     transform: scale(1.1);
 }
 
+/* custom playlist button to avoid conflict with download-button rules */
+.custom-playlist-btn, #music-list li .song-actions .add-to-custom {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    color: #fff;
+    padding: 6px 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+}
+
+#music-list li .song-actions .add-to-custom {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+}
+
+#music-list li:hover .song-actions .add-to-custom,
+.version-item:hover .song-actions .add-to-custom {
+    opacity: 1;
+    visibility: visible;
+}
+
 /* 為播放按鈕設計更具吸引力與互動性的新樣式 */
 #music-list li .song-actions button.play-song {
     background: #1db954;

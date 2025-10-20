@@ -201,6 +201,32 @@ function loadSong(song, versionIndex = -1) {
     }
 }
 
+// Public helper: load an array of song titles (strings) as the current album/playlist
+// titles: array of strings (song.title values)
+// startIndex: index in titles to start from
+// autoplay: whether to immediately start playing
+window.loadPlaylistTitles = function(titles, startIndex = 0, autoplay = true) {
+    try {
+        if (!Array.isArray(titles) || titles.length === 0) return;
+        // Replace currentAlbum with the titles array
+        currentAlbum = titles.slice();
+        currentSongIndex = Math.max(0, Math.min(startIndex, currentAlbum.length - 1));
+
+        const firstTitle = typeof currentAlbum[currentSongIndex] === 'string' ? currentAlbum[currentSongIndex] : (currentAlbum[currentSongIndex].title || currentAlbum[currentSongIndex]);
+        const songData = findSongInMusicData(firstTitle);
+        if (songData) {
+            currentVersionIndex = songData.versions ? 0 : -1;
+            loadSong(songData, currentVersionIndex);
+            if (autoplay) {
+                audio.play().catch(()=>{});
+            }
+            updatePlayButton();
+        }
+    } catch (e) {
+        console.error('loadPlaylistTitles error', e);
+    }
+};
+
 // 從 nfo (JSON) 取得資料並顯示在右側欄
 async function loadNfo(url) {
     try {
@@ -387,7 +413,7 @@ audio.addEventListener('ended', () => {
     }
 });
 
-// 處理下載按鈕（委託）
+// 處理下載按鈕與加入自製清單按鈕（委託）
 musicListContainer.addEventListener('click', function(e) {
     const dl = e.target.closest('.download-button');
     if (dl) {
@@ -398,6 +424,19 @@ musicListContainer.addEventListener('click', function(e) {
         if (src) {
             downloadFile(src, fileName);
         }
+        return;
+    }
+
+    const addBtn = e.target.closest('.add-to-custom');
+    if (addBtn) {
+        e.stopPropagation();
+        const title = addBtn.dataset.title;
+        if (typeof window.openCustomPlaylistAddDialog === 'function') {
+            window.openCustomPlaylistAddDialog(title);
+        } else {
+            alert('Open Custom Playlists Manager to add songs to your playlist.');
+        }
+        return;
     }
 });
 
@@ -592,6 +631,7 @@ const versionIndex = songData.versions.findIndex(v => v.version === versionName)
                             <div class="song-actions">
                                 <button class="play-song" data-genre="${genre}" data-index="${index}" data-version="${versionIndex}"><i class="fas fa-play"></i></button>
                                 <button class="download-button" data-src="${songData.versions[versionIndex].src}" data-title="${songData.title} (${versionName})" title="下載"><i class="fas fa-download"></i></button>
+                                <button class="add-to-custom" data-title="${songData.title} (${versionName})" title="Add to custom playlist">+</button>
                             </div>
                         </li>
                         `;
@@ -608,6 +648,7 @@ const versionIndex = songData.versions.findIndex(v => v.version === versionName)
                 <div class="song-actions">
                     <button class="play-song" data-genre="${genre}" data-index="${index}"><i class="fas fa-play"></i></button>
                     <button class="download-button" data-src="${songData.src}" data-title="${songData.title}" title="下載"><i class="fas fa-download"></i></button>
+                    <button class="add-to-custom" data-title="${songData.title}" title="Add to custom playlist">+</button>
                 </div>
             `;
         }
