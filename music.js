@@ -42,10 +42,6 @@ const musicListContainer = document.getElementById('music-list');
         document.getElementById('error-overlay-close').addEventListener('click', () => { errDiv.style.display = 'none'; });
 
         window.addEventListener('error', function(event){
-            // 如果錯誤訊息包含 "Genre not found"，就不顯示錯誤提示
-            if (event.message && event.message.includes('Genre not found')) {
-                return;
-            }
             const msgEl = document.getElementById('error-overlay-msg');
             msgEl.textContent = (event && event.message ? event.message : String(event));
             errDiv.style.display = 'block';
@@ -285,17 +281,6 @@ function playSong() {
 
 // 下一首
 function nextSong() {
-    // 如果正在播放播放清單中的歌曲
-    if (window.isPlayingFromPlaylist) {
-        if (playNextInPlaylist()) {
-            updatePlayButton();
-            return;
-        }
-        // 如果播放清單播放完畢且不循環，切換回一般模式
-        window.isPlayingFromPlaylist = false;
-    }
-
-    // 一般模式下的播放邏輯
     if (shuffle) {
         const randomSongIndex = Math.floor(Math.random() * currentAlbum.length);
         const randomAlbumSong = currentAlbum[randomSongIndex];
@@ -337,16 +322,6 @@ function nextSong() {
 
 // 上一首
 function prevSong() {
-    // 如果正在播放播放清單中的歌曲
-    if (window.isPlayingFromPlaylist) {
-        if (playPreviousInPlaylist()) {
-            updatePlayButton();
-            return;
-        }
-        // 如果已經是第一首且不循環，保持在第一首
-        return;
-    }
-
     if (shuffle) {
         const randomSongIndex = Math.floor(Math.random() * currentAlbum.length);
         const randomAlbumSong = currentAlbum[randomSongIndex];
@@ -468,7 +443,7 @@ function loadPlaylistItems() {
         const playlistItem = document.createElement('div');
         playlistItem.classList.add('playlist-item');
         // 圖片網址自動設定
-        const albumImgUrl = `Album/${playlist.name}.webp`;
+        const albumImgUrl = `Album/${playlist.name}.jpg`;
         playlistItem.innerHTML = `
             <img src="${albumImgUrl}" alt="${playlist.name}">
             <h3>${playlist.name}</h3>
@@ -478,22 +453,10 @@ function loadPlaylistItems() {
 
         playlistItem.addEventListener('click', () => {
             const genre = playlist.name.toLowerCase();
-            // 先切換到 library 頁面
-            switchPage('library');
-            // 更新當前類型
             currentGenre = genre;
-            // 載入音樂列表
             loadMusicList(genre);
-            // 更新類型選擇，使用 try-catch 防止錯誤
-            try {
-                const genreElement = document.querySelector(`.genre-list li[data-genre="${genre}"]`);
-                if (genreElement) {
-                    libraryGenres.forEach(g => g.classList.remove('active'));
-                    genreElement.classList.add('active');
-                }
-            } catch (error) {
-                console.log('Genre not found in list:', genre);
-            }
+            updateGenreSelection(genre);
+            switchPage('library');
         });
     });
 }
@@ -627,9 +590,6 @@ const versionIndex = songData.versions.findIndex(v => v.version === versionName)
                         <li class="version-item">
                             <div class="song-details">${versionName}</div>
                             <div class="song-actions">
-                                <button class="add-to-playlist-button" title="加入播放清單" data-title="${songData.title}" data-version="${versionIndex}">
-                                    <i class="fas fa-plus"></i>
-                                </button>
                                 <button class="play-song" data-genre="${genre}" data-index="${index}" data-version="${versionIndex}"><i class="fas fa-play"></i></button>
                                 <button class="download-button" data-src="${songData.versions[versionIndex].src}" data-title="${songData.title} (${versionName})" title="下載"><i class="fas fa-download"></i></button>
                             </div>
@@ -646,9 +606,6 @@ const versionIndex = songData.versions.findIndex(v => v.version === versionName)
                     <span>${songData.title}</span>
                 </div>
                 <div class="song-actions">
-                    <button class="add-to-playlist-button" title="加入播放清單" data-title="${songData.title}">
-                        <i class="fas fa-plus"></i>
-                    </button>
                     <button class="play-song" data-genre="${genre}" data-index="${index}"><i class="fas fa-play"></i></button>
                     <button class="download-button" data-src="${songData.src}" data-title="${songData.title}" title="下載"><i class="fas fa-download"></i></button>
                 </div>
@@ -671,19 +628,6 @@ const versionIndex = songData.versions.findIndex(v => v.version === versionName)
             } else {
                 versionsList.style.display = 'none';
                 icon.classList.replace('fa-chevron-up', 'fa-chevron-down');
-            }
-        });
-    });
-
-    // 為所有加入播放清單按鈕添加事件監聽器
-    musicListContainer.querySelectorAll('.add-to-playlist-button').forEach(button => {
-        button.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const songTitle = button.dataset.title;
-            const versionIndex = button.dataset.version ? parseInt(button.dataset.version) : -1;
-            const song = findSongInMusicData(songTitle);
-            if (song) {
-                showPlaylistSelector(song, versionIndex);
             }
         });
     });
