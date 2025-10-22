@@ -301,46 +301,53 @@ const musicData = [
                 "info": "Source/生きているこの時、死んだあの日を想う/default/information.json"
             },
             {
-                "title": "生きているこの時、死んだあの日を想う（feat. 初音ミク）",
-                "version": "feat. 初音ミク",
-                "src": "Source/生きているこの時、死んだあの日を想う/feat. 初音ミク/audio.mp3",
-                "cover": "Source/生きているこの時、死んだあの日を想う/feat. 初音ミク/cover.jpg",
-                "info": "Source/生きているこの時、死んだあの日を想う/feat. 初音ミク/information.json"
+                "title": "生きているこの時、死んだあの日を想う（feat.初音ミク）",
+                "version": "feat.初音ミク",
+                "src": "Source/生きているこの時、死んだあの日を想う/feat.初音ミク/audio.mp3",
+                "cover": "Source/生きているこの時、死んだあの日を想う/feat.初音ミク/cover.jpg",
+                "info": "Source/生きているこの時、死んだあの日を想う/feat.初音ミク/information.json"
             },
             {
-                "title": "生きているこの時、死んだあの日を想う（feat. 鏡音リン）",
-                "version": "feat. 鏡音リン",
-                "src": "Source/生きているこの時、死んだあの日を想う/feat. 鏡音リン/audio.mp3",
-                "cover": "Source/生きているこの時、死んだあの日を想う/feat. 鏡音リン/cover.jpg",
-                "info": "Source/生きているこの時、死んだあの日を想う/feat. 鏡音リン/information.json"
+                "title": "生きているこの時、死んだあの日を想う（feat.鏡音リン）",
+                "version": "feat.鏡音リン",
+                "src": "Source/生きているこの時、死んだあの日を想う/feat.鏡音リン/audio.mp3",
+                "cover": "Source/生きているこの時、死んだあの日を想う/feat.鏡音リン/cover.jpg",
+                "info": "Source/生きているこの時、死んだあの日を想う/feat.鏡音リン/information.json"
             },
             {
-                "title": "生きているこの時、死んだあの日を想う（feat. 鏡音レン）",
-                "version": "feat. 鏡音レン",
-                "src": "Source/生きているこの時、死んだあの日を想う/feat. 鏡音レン/audio.mp3",
-                "cover": "Source/生きているこの時、死んだあの日を想う/feat. 鏡音レン/cover.jpg",
-                "info": "Source/生きているこの時、死んだあの日を想う/feat. 鏡音レン/information.json"
+                "title": "生きているこの時、死んだあの日を想う（feat.鏡音レン）",
+                "version": "feat.鏡音レン",
+                "src": "Source/生きているこの時、死んだあの日を想う/feat.鏡音レン/audio.mp3",
+                "cover": "Source/生きているこの時、死んだあの日を想う/feat.鏡音レン/cover.jpg",
+                "info": "Source/生きているこの時、死んだあの日を想う/feat.鏡音レン/information.json"
             },
             {
-                "title": "生きているこの時、死んだあの日を想う（feat. 巡音ルカ）",
-                "version": "feat. 巡音ルカ",
-                "src": "Source/生きているこの時、死んだあの日を想う/feat. 巡音ルカ/audio.mp3",
-                "cover": "Source/生きているこの時、死んだあの日を想う/feat. 巡音ルカ/cover.jpg",
-                "info": "Source/生きているこの時、死んだあの日を想う/feat. 巡音ルカ/information.json"
+                "title": "生きているこの時、死んだあの日を想う（feat.巡音ルカ）",
+                "version": "feat.巡音ルカ",
+                "src": "Source/生きているこの時、死んだあの日を想う/feat.巡音ルカ/audio.mp3",
+                "cover": "Source/生きているこの時、死んだあの日を想う/feat.巡音ルカ/cover.jpg",
+                "info": "Source/生きているこの時、死んだあの日を想う/feat.巡音ルカ/information.json"
             },
             {
-                "title": "生きているこの時、死んだあの日を想う（feat. IA）",
-                "version": "feat. IA",
-                "src": "Source/生きているこの時、死んだあの日を想う/feat. IA/audio.mp3",
-                "cover": "Source/生きているこの時、死んだあの日を想う/feat. IA/cover.jpg",
-                "info": "Source/生きているこの時、死んだあの日を想う/feat. IA/information.json"
+                "title": "生きているこの時、死んだあの日を想う（feat.IA）",
+                "version": "feat.IA",
+                "src": "Source/生きているこの時、死んだあの日を想う/feat.IA/audio.mp3",
+                "cover": "Source/生きているこの時、死んだあの日を想う/feat.IA/cover.jpg",
+                "info": "Source/生きているこの時、死んだあの日を想う/feat.IA/information.json"
             },
             {
-                "title": "生きているこの時、死んだあの日を想う（feat. VOCALOIDS）",
-                "version": "feat. VOCALOIDS",
-                "src": "Source/生きているこの時、死んだあの日を想う/feat. VOCALOIDS/audio.mp3",
-                "cover": "Source/生きているこの時、死んだあの日を想う/feat. VOCALOIDS/cover.jpg",
-                "info": "Source/生きているこの時、死んだあの日を想う/feat. VOCALOIDS/information.json"
+                "title": "生きているこの時、死んだあの日を想う（feat.Kaito）",
+                "version": "feat.IA",
+                "src": "Source/生きているこの時、死んだあの日を想う/feat.Kaito/audio.mp3",
+                "cover": "Source/生きているこの時、死んだあの日を想う/feat.Kaito/cover.jpg",
+                "info": "Source/生きているこの時、死んだあの日を想う/feat.Kaito/information.json"
+            },
+            {
+                "title": "生きているこの時、死んだあの日を想う（feat.VOCALOIDS）",
+                "version": "feat.VOCALOIDS",
+                "src": "Source/生きているこの時、死んだあの日を想う/feat.VOCALOIDS/audio.mp3",
+                "cover": "Source/生きているこの時、死んだあの日を想う/feat.VOCALOIDS/cover.jpg",
+                "info": "Source/生きているこの時、死んだあの日を想う/feat.VOCALOIDS/information.json"
             }
         ]
     },
@@ -555,7 +562,7 @@ const albumData = {
         "01011001//ɅƧȼℏřØπ",
         "和平の交響曲",
         "儚い幻",
-        { "title": "生きているこの時、死んだあの日を想う", "versions": ["default", "feat. 初音ミク", "feat. 鏡音リン", "feat. 鏡音レン", "feat. 巡音ルカ", "feat. IA", "feat. VOCALOIDS"] }
+        { "title": "生きているこの時、死んだあの日を想う", "versions": ["default", "feat.初音ミク", "feat.鏡音リン", "feat.鏡音レン", "feat.巡音ルカ", "feat.IA", "feat.VOCALOIDS"] }
     ],
     "piano": [
         "心の祈り",
