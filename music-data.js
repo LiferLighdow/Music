@@ -337,7 +337,7 @@ const musicData = [
             },
             {
                 "title": "生きているこの時、死んだあの日を想う（feat.Kaito）",
-                "version": "feat.IA",
+                "version": "feat.Kaito",
                 "src": "Source/生きているこの時、死んだあの日を想う/feat.Kaito/audio.mp3",
                 "cover": "Source/生きているこの時、死んだあの日を想う/feat.Kaito/cover.webp",
                 "info": "Source/生きているこの時、死んだあの日を想う/feat.Kaito/information.json"
