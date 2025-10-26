@@ -298,6 +298,24 @@ const musicData = [
         "info": "Source/和平の交響曲/information.json"
     },
     {
+        "title": "Someday's Promise",
+        "src": "Source/Someday's Promise/audio.mp3",
+        "cover": "Source/Someday's Promise/cover.webp",
+        "info": "Source/Someday's Promise/information.json"
+    },
+    {
+        "title": "無色ノ声",
+        "src": "Source/無色ノ声/audio.mp3",
+        "cover": "Source/無色ノ声/cover.webp",
+        "info": "Source/無色ノ声/information.json"
+    },
+    {
+        "title": "私は大丈夫",
+        "src": "Source/私は大丈夫/audio.mp3",
+        "cover": "Source/私は大丈夫/cover.webp",
+        "info": "Source/私は大丈夫/information.json"
+    },
+    {
         "title": "生きているこの時、死んだあの日を想う",
         "versions": [
             {
@@ -539,11 +557,11 @@ const albumData = {
         { "title": "永遠の光", "versions": ["Male ver.", "Female ver."] },
         "あなたの影",
         { "title": "戦火の中の永遠", "versions": ["Female ver.", "Male ver."] },
-        "無垠之心Infiniteこころの경계",
-        { "title": "捨てられた子供", "versions": ["Female ver.", "Male ver."] }
+        "無垠之心Infiniteこころの경계"
     ],
     "rock": [
-        "卒業おめでとう",
+        { "title": "捨てられた子供", "versions": ["Female ver.", "Male ver."] },
+        { "title": "卒業おめでとう", "versions": ["Male ver.", "Female ver."] },
         "時空を超えて",
         "夢の風に乗って",
         "The Kings Revival",
@@ -554,10 +572,6 @@ const albumData = {
         "まごまごハッピー",
         "ぐるぐるダンス",
         "にんぎょうのうた",
-        "Sugary Affection",
-        "Slumbering Sea",
-        "EtCr_musix",
-        "Doomsday Conqueror"
     ],
     "vocaloid": [
         "人生何のために",
@@ -568,6 +582,9 @@ const albumData = {
         "Eternal Moment",
         "01011001//ɅƧȼℏřØπ",
         "和平の交響曲",
+        "Somedays Promise",
+        "無色ノ声",
+        "私は大丈夫",
         { "title": "生きているこの時、死んだあの日を想う", "versions": ["default", "feat.初音ミク", "feat.鏡音リン", "feat.鏡音レン", "feat.巡音ルカ", "feat.IA", "feat.Kaito", "feat.VOCALOIDS"] }
     ],
     "piano": [
@@ -589,7 +606,11 @@ const albumData = {
     "game": [
         "NIGHT ZONE",
         "Stardust Symphony",
-        "命日回忌"
+        "命日回忌",
+        "Sugary Affection",
+        "Slumbering Sea",
+        "EtCr_musix",
+        "Doomsday Conqueror"
     ],
     "original": [
         "MALBENO5.4",
