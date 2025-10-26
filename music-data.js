@@ -285,12 +285,6 @@ const musicData = [
         "info": "Source/和平の交響曲/information.json"
     },
     {
-        "title": "儚い幻",
-        "src": "Source/儚い幻/audio.mp3",
-        "cover": "Source/儚い幻/cover.webp",
-        "info": "Source/儚い幻/information.json"
-    },
-    {
         "title": "生きているこの時、死んだあの日を想う",
         "versions": [
             {
@@ -561,7 +555,6 @@ const albumData = {
         "Eternal Moment",
         "01011001//ɅƧȼℏřØπ",
         "和平の交響曲",
-        "儚い幻",
         { "title": "生きているこの時、死んだあの日を想う", "versions": ["default", "feat.初音ミク", "feat.鏡音リン", "feat.鏡音レン", "feat.巡音ルカ", "feat.IA", "feat.Kaito", "feat.VOCALOIDS"] }
     ],
     "piano": [
