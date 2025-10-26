@@ -147,9 +147,22 @@ const musicData = [
     },
     {
         "title": "卒業おめでとう",
-        "src": "Source/卒業おめでとう/audio.mp3",
-        "cover": "Source/卒業おめでとう/cover.webp",
-        "info": "Source/卒業おめでとう/information.json"
+        "versions": [
+            {
+                "title": "卒業おめでとう（Male ver.）",
+                "version": "Male ver.",
+                "src": "Source/卒業おめでとう/Male ver./audio.mp3",
+                "cover": "Source/卒業おめでとう/Male ver./cover.webp",
+                "info": "Source/卒業おめでとう/Male ver./information.json"
+            },
+            {
+                 "title": "卒業おめでとう（Female ver.）",
+                "version": "Female ver.",
+                "src": "Source/卒業おめでとう/Female ver./audio.mp3",
+                "cover": "Source/卒業おめでとう/Female ver./cover.webp",
+                "info": "Source/卒業おめでとう/Female ver./information.json"
+            },
+        ]
     },
     {
         "title": "時空を超えて",
