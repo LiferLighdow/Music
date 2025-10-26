@@ -582,7 +582,7 @@ const albumData = {
         "Eternal Moment",
         "01011001//ɅƧȼℏřØπ",
         "和平の交響曲",
-        "Somedays Promise",
+        "Someday's Promise",
         "無色ノ声",
         "私は大丈夫",
         { "title": "生きているこの時、死んだあの日を想う", "versions": ["default", "feat.初音ミク", "feat.鏡音リン", "feat.鏡音レン", "feat.巡音ルカ", "feat.IA", "feat.Kaito", "feat.VOCALOIDS"] }
