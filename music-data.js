@@ -480,15 +480,28 @@ const musicData = [
     },
     {
         "title": "MALBENO5.4",
-        "src": "Source/MALBENO5.4/audio.mp3",
-        "cover": "Source/MALBENO5.4/cover.webp",
-        "info": "Source/MALBENO5.4/information.json"
-    },
-    {
-        "title": "MALBENO5.4-R.I.P",
-        "src": "Source/MALBENO5.4-R.I.P/audio.mp3",
-        "cover": "Source/MALBENO5.4-R.I.P/cover.webp",
-        "info": "Source/MALBENO5.4-R.I.P/information.json"
+        "versions": [
+            {
+                "title":"MALBENO5.4",
+                "version": "default",
+                "src": "Source/MALBENO5.4/audio.mp3",
+                "cover": "Source/MALBENO5.4/cover.webp",
+                "info": "Source/MALBENO5.4/information.json"
+            },
+            {
+                "title":"MALBENO5.4_2",
+                "version": "gen2",
+                "src": "Source/MALBENO5.4/gen2/audio.mp3",
+                "cover": "Source/MALBENO5.4/gen2/cover.webp",
+                "info": "Source/MALBENO5.4/gen2/information.json"
+            },
+            {
+                "title":"MALBENO5.4-R.I.P",
+                "version": "R.I.P",
+                "src": "Source/MALBENO5.4/R.I.P/audio.mp3",
+                "cover": "Source/MALBENO5.4/R.I.P/cover.webp",
+                "info": "Source/MALBENO5.4/R.I.P/information.json"
+            }
     },
     {
         "title": "Dlesaws",
