@@ -626,8 +626,7 @@ const albumData = {
         "Doomsday Conqueror"
     ],
     "original": [
-        "MALBENO5.4",
-        "MALBENO5.4-R.I.P",
+        { "title": "MALBENO5.4", "versions": ["default", "gen2", "R.I.P"] },
         "Dlesaws",
         "Ⱨ₳ⱤĐ₵ØⱤɆ",
         "🌌Feline from the Multiverse 🌌",
