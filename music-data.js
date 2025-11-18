@@ -502,6 +502,7 @@ const musicData = [
                 "cover": "Source/MALBENO5.4/R.I.P/cover.webp",
                 "info": "Source/MALBENO5.4/R.I.P/information.json"
             }
+         ]
     },
     {
         "title": "Dlesaws",
