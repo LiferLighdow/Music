@@ -484,9 +484,9 @@ const musicData = [
             {
                 "title":"MALBENO5.4",
                 "version": "default",
-                "src": "Source/MALBENO5.4/audio.mp3",
-                "cover": "Source/MALBENO5.4/cover.webp",
-                "info": "Source/MALBENO5.4/information.json"
+                "src": "Source/MALBENO5.4/default/audio.mp3",
+                "cover": "Source/MALBENO5.4/default/cover.webp",
+                "info": "Source/MALBENO5.4/default/information.json"
             },
             {
                 "title":"MALBENO5.4_2",
