@@ -51,21 +51,21 @@ const musicData = [
         ]
     },
     {
-        "title": "Infinite_Labyrinth",
+        "title": "Infinite Labyrinth",
         "versions": [
             {
-                "title": "Infinite_Labyrinth（Female ver.）",
+                "title": "Infinite Labyrinth（Female ver.）",
                 "version": "Female ver.",
-                "src": "Source/Infinite_Labyrinth/Female ver./audio.mp3",
-                "cover": "Source/Infinite_Labyrinth/Female ver./cover.webp",
-                "info": "Source/Infinite_Labyrinth/Female ver./information.json"
+                "src": "Source/Infinite Labyrinth/Female ver./audio.mp3",
+                "cover": "Source/Infinite Labyrinth/Female ver./cover.webp",
+                "info": "Source/Infinite Labyrinth/Female ver./information.json"
             },
             {
-                "title": "Infinite_Labyrinth（Male ver.）",
+                "title": "Infinite Labyrinth（Male ver.）",
                 "version": "Male ver.",
-                "src": "Source/Infinite_Labyrinth/Male ver./audio.mp3",
-                "cover": "Source/Infinite_Labyrinth/Male ver./cover.webp",
-                "info": "Source/Infinite_Labyrinth/Male ver./information.json"
+                "src": "Source/Infinite Labyrinth/Male ver./audio.mp3",
+                "cover": "Source/Infinite Labyrinth/Male ver./cover.webp",
+                "info": "Source/Infinite Labyrinth/Male ver./information.json"
             }
         ]
     },
